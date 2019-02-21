@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const _ = require('lodash');
 const mongoose = require('mongoose');
 const Validate = require('./Utils/Validate');
+const cors = require('cors');
 
 const port = process.env.PORT || 2000;
 
