@@ -8,12 +8,14 @@ const port = process.env.PORT || 2000;
 
 const regsModel = require('./Models/regs');
 
+require('dotenv').config();
+
 const app = express();
 app.use(bodyParser.json());
 
-require('dotenv').config();
 
-mongoose.connect(MONGO_DB_URL, (err) => {
+
+mongoose.connect(process.env.MONGO_DB_URL, (err) => {
     err ? console.log(err) : console.log("Successfully connected to the database!");
 });
 
