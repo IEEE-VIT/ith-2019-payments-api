@@ -11,7 +11,9 @@ const regsModel = require('./Models/regs');
 const app = express();
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://harshablast:atom1234@ds127535.mlab.com:27535/ith2019", (err) => {
+require('dotenv').config();
+
+mongoose.connect(MONGO_DB_URL, (err) => {
     err ? console.log(err) : console.log("Successfully connected to the database!");
 });
 
