@@ -46,7 +46,7 @@ app.post('/register',(req,res) => {
 
 var allowCrossDomain = function(req, res, next) {
 
-    var allowedOrigins = ['ith.ieeevit.com'];
+    var allowedOrigins = ['http://ith.ieeevit.com'];
 
     var origin = req.headers.origin;
     if(allowedOrigins.indexOf(origin) > -1){
