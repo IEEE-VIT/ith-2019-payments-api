@@ -15,7 +15,15 @@ require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
-// app.use(cors())
+
+app.options('*', cors()); 
+
+app.all('/*', function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://ith.ieeevit.com");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header("Access-Control-Allow-Headers", "X-Requested-With,     Content-Type");
+    next();
+});
 
 
 
@@ -25,7 +33,6 @@ mongoose.connect(process.env.MONGO_DB_URL, (err) => {
 
 
 app.post('/register',(req,res) => {
-    console.log(req.headers.origin)
     validationData = Validate(req.body)
 
     if (validationData.Status == "Failed"){
@@ -48,32 +55,6 @@ app.post('/register',(req,res) => {
 
 })
 
-var allowCrossDomain = function(req, res, next) {
-
-    var allowedOrigins = ['http://ith.ieeevit.com'];
-
-    var origin = req.headers.origin;
-    if(allowedOrigins.indexOf(origin) > -1){
-        res.header('Access-Control-Allow-Origin', origin);
-    }
-    res.header('Connection','keep-alive');
-    res.header('Keep-Alive','timeout=200');
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, captchaCookie");
-    res.header('content-type', 'application/json');
-    res.header('Access-Control-Allow-Credentials', true);
-    if (req.method === 'OPTIONS') {
-        var headers = {
-            "Access-Control-Allow-Methods" : "GET, POST, OPTIONS",
-            "Access-Control-Allow-Credentials" : true
-        };
-        res.writeHead(200, headers);
-        res.end();
-    } else {
-        next();
-    }
-}
-
-app.use(allowCrossDomain);
 
 app.listen(port, () => {
     console.log(`App started on port: ${port}.`);
