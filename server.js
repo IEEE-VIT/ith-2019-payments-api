@@ -5,13 +5,6 @@ const mongoose = require('mongoose');
 const Validate = require('./Utils/Validate');
 const cors = require('cors');
 
-var corsOptions = {
-    origin: 'http://ith.ieeevit.com',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-  }
-
-app.use(cors(corsOptions))
-
 const port = process.env.PORT || 2000;
 
 const regsModel = require('./Models/regs');
@@ -52,32 +45,32 @@ app.post('/register',(req,res) => {
 
 })
 
-// var allowCrossDomain = function(req, res, next) {
+var allowCrossDomain = function(req, res, next) {
 
-//     var allowedOrigins = ['http://ith.ieeevit.com'];
+    var allowedOrigins = ['http://ith.ieeevit.com'];
 
-//     var origin = req.headers.origin;
-//     if(allowedOrigins.indexOf(origin) > -1){
-//         res.header('Access-Control-Allow-Origin', origin);
-//     }
-//     res.header('Connection','keep-alive');
-//     res.header('Keep-Alive','timeout=200');
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, captchaCookie");
-//     res.header('content-type', 'application/json');
-//     res.header('Access-Control-Allow-Credentials', true);
-//     if (req.method === 'OPTIONS') {
-//         var headers = {
-//             "Access-Control-Allow-Methods" : "GET, POST, OPTIONS",
-//             "Access-Control-Allow-Credentials" : true
-//         };
-//         res.writeHead(200, headers);
-//         res.end();
-//     } else {
-//         next();
-//     }
-// }
+    var origin = req.headers.origin;
+    if(allowedOrigins.indexOf(origin) > -1){
+        res.header('Access-Control-Allow-Origin', origin);
+    }
+    res.header('Connection','keep-alive');
+    res.header('Keep-Alive','timeout=200');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('content-type', 'application/json');
+    res.header('Access-Control-Allow-Credentials', true);
+    if (req.method === 'OPTIONS') {
+        var headers = {
+            "Access-Control-Allow-Methods" : "GET, POST, OPTIONS",
+            "Access-Control-Allow-Credentials" : true
+        };
+        res.writeHead(200, headers);
+        res.end();
+    } else {
+        next();
+    }
+}
 
-// app.use(allowCrossDomain);
+app.use(allowCrossDomain);
 
 app.listen(port, () => {
     console.log(`App started on port: ${port}.`);
