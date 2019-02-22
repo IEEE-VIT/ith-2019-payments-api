@@ -6,7 +6,6 @@ const Validate = require('./Utils/Validate');
 const cors = require('cors');
 
 
-app.use(cors())
 
 const port = process.env.PORT || 2000;
 
@@ -16,6 +15,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors())
 
 
 
