@@ -31,7 +31,9 @@ const regsSchema = new Schema({
     ieee_id: String,
     q1: String,
     q2: String,
-    q3: String
+    q3: String,
+    q4: String,
+    q5: String
 
 })
 

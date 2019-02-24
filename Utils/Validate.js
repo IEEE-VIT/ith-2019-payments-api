@@ -60,7 +60,7 @@ const Validate = (data) => {
             }
             
             if (!Mobile.test(data.mobile)) {
-                return {Status: "Failed", Message: "Error with mobile"}
+                return {Status: "Failed", Message: "Error with mobile number"}
             }
     
             if (!Text.test(data.q1) || !Text.test(data.q2) || !Text.test(data.q3) || !Text.test(data.q4) || !Text.test(data.q5)) {
