@@ -12,21 +12,13 @@ const checkRequiredFields = data => {
         data.hasOwnProperty('external') &&
         data.hasOwnProperty('university') &&
         data.hasOwnProperty('regno') &&
-        data.hasOwnProperty('block') &&
-        data.hasOwnProperty('room') &&
-        data.hasOwnProperty('acc') &&
-        data.hasOwnProperty('city') &&
+        data.hasOwnProperty('gender') &&
         data.hasOwnProperty('ieee_member') &&
         data.hasOwnProperty('ieee_id') &&
-        data.hasOwnProperty('q1') &&
-        data.hasOwnProperty('q2') &&
-        data.hasOwnProperty('q3') &&
-        data.hasOwnProperty('q4') &&
-        data.hasOwnProperty('q5') &&
         data.hasOwnProperty('verified')
     )
     {
-        if (Object.getOwnPropertyNames(data).length > 18) {
+        if (Object.getOwnPropertyNames(data).length > 10) {
             return false
         }
         else {
@@ -63,7 +55,7 @@ const Validate = (data) => {
                 return {Status: "Failed", Message: "Error with mobile number"}
             }
     
-            if (!Text.test(data.q1) || !Text.test(data.q2) || !Text.test(data.q3) || !Text.test(data.q4) || !Text.test(data.q5)) {
+            if (!Text.test(data.gender)) {
                 return {Status: "Failed", Message: "Error with the answers!"}
             }
     

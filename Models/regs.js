@@ -24,16 +24,9 @@ const regsSchema = new Schema({
         required: true
     },
     regno: String,
-    city: String,
-    block: String,
-    room: String,
     ieee_member: Boolean,
     ieee_id: String,
-    q1: String,
-    q2: String,
-    q3: String,
-    q4: String,
-    q5: String
+    gender: String
 
 })
 
