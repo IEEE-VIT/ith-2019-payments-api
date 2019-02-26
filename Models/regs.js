@@ -23,6 +23,7 @@ const regsSchema = new Schema({
         type: String,
         required: true
     },
+    track: String,
     regno: String,
     ieee_member: Boolean,
     ieee_id: String,
@@ -30,6 +31,6 @@ const regsSchema = new Schema({
 
 })
 
-const regsModel = mongoose.model('regs',regsSchema);
+const regsModel = mongoose.model('registrations',regsSchema);
 
 module.exports = regsModel;

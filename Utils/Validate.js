@@ -10,6 +10,7 @@ const checkRequiredFields = data => {
         data.hasOwnProperty('email') &&
         data.hasOwnProperty('mobile') &&
         data.hasOwnProperty('external') &&
+        data.hasOwnProperty('track') &&
         data.hasOwnProperty('university') &&
         data.hasOwnProperty('regno') &&
         data.hasOwnProperty('gender') &&
@@ -18,7 +19,7 @@ const checkRequiredFields = data => {
         data.hasOwnProperty('verified')
     )
     {
-        if (Object.getOwnPropertyNames(data).length > 10) {
+        if (Object.getOwnPropertyNames(data).length > 11) {
             return false
         }
         else {
