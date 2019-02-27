@@ -23,6 +23,7 @@ const regsSchema = new Schema({
         type: String,
         required: true
     },
+    combo: String,
     track: String,
     regno: String,
     ieee_member: Boolean,
