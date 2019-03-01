@@ -17,10 +17,11 @@ const checkRequiredFields = data => {
         data.hasOwnProperty('gender') &&
         data.hasOwnProperty('ieee_member') &&
         data.hasOwnProperty('ieee_id') &&
-        data.hasOwnProperty('verified')
+        data.hasOwnProperty('verified') &&
+        data.hasOwnProperty('link')
     )
     {
-        if (Object.getOwnPropertyNames(data).length > 12) {
+        if (Object.getOwnPropertyNames(data).length > 13) {
             return false
         }
         else {
