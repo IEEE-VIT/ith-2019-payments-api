@@ -40,7 +40,8 @@ app.post('/register',(req,res) => {
     }
 
     else{
-        regsModel.create(req.body)
+        var final_body = Object.assign(req.body,{TimeStamp: Date()})
+        regsModel.create(final_body)
         .then(data => {
             res.json({Status: 'Success',Message: 'User registered'})
         }, err => {

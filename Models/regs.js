@@ -28,7 +28,8 @@ const regsSchema = new Schema({
     regno: String,
     ieee_member: Boolean,
     ieee_id: String,
-    gender: String
+    gender: String,
+    TimeStamp: String
 
 })
 
