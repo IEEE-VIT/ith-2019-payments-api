@@ -43,8 +43,8 @@ sendMail = (email,link,name) => {
             name: 'IEEE VIT'
         },
         subject: 'IEEE Techloop Hack 2019',
-        html: `
-            Hello, ${name}!
+        text: `
+            Hello, ${name}!\n
             You are recieveing this email for registering for IEEE Techloop Hack, 2019.\n
             To confirm your registration, proceed to the payment portal from link given below:\n
             \n
