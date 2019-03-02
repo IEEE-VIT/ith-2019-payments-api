@@ -53,16 +53,19 @@ sendMail = (email,link,name) => {
             >
             <h4>Hello, ${name}!</h4>
             <h4>You have successfully registered for IEEE Techloop Hack, 2019<h4/>
-            <p>To confirm your registration, pay now by clicking on the button below.</p>
-            <p style="font-size: 8px;">Ignore if already paid</p>
-            <br/><br/>
+            <p>To confirm your registration, pay now by clicking on the button below.</p><br/>
+
             <a 
-                style="
-                    padding: 12px;
-                    color: #fff;
-                    background-color: #0080FF;
-                "
+            style="
+                padding: 8px 16px;
+                color: #fff;
+                background-color: #0080FF;
+            "
             href=${link}>Pay Now</a>
+
+            <p style="font-size: 10px;">Ignore if already paid</p>
+            <br/><br/>
+
 
             <p>With Regards,<br/>
             IEEE-VIT</p>
