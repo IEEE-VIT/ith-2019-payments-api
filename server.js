@@ -44,43 +44,17 @@ sendMail = (email,link,name) => {
         },
         subject: 'IEEE Techloop Hack 2019',
         html: `
-        <div style="
-            background-color: #fff;
-            padding: 24px;
-        ">
-            <div
-                style="
-                    background-color: #efefef;
-                    padding: 16px;
-                "
-            >
-            <h3>Hello, ${name}!</h3>
-            <h4>You have successfully registered for IEEE Techloop Hack, 2019<h4/>
-            <p>To confirm your registration, pay now by clicking on the button below.</p><br/>
+            Hello, ${name}!
+            You are recieveing this email for registering for IEEE Techloop Hack, 2019.
+            To confirm your registration, proceed to the payment portal from link given below:
 
-            <a 
-            style="
-                padding: 6px 16px;
-                color: #fff;
-                background-color: #0080FF;
-                border-radius: 3px;
-            "
-            href=${link}>Pay Now</a><br/>
+            ${link}
 
-            <p style="font-size: 10px;">Ignore if already paid</p>
-            <br/><br/>
+            With Regards,
+            IEEE-VIT
 
-
-            <p>With Regards,<br/>
-            IEEE-VIT</p>
-
-            <p>
-            Agrim Nautiyal<br/>
+            Agrim Nautiyal
             +91 91592 89775
-            </p
-            </div>
-        </div>
-        
         `,
         
       };
