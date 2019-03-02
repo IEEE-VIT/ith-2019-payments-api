@@ -45,15 +45,15 @@ sendMail = (email,link,name) => {
         subject: 'IEEE Techloop Hack 2019',
         html: `
             Hello, ${name}!
-            You are recieveing this email for registering for IEEE Techloop Hack, 2019.
-            To confirm your registration, proceed to the payment portal from link given below:
-
+            You are recieveing this email for registering for IEEE Techloop Hack, 2019.\n
+            To confirm your registration, proceed to the payment portal from link given below:\n
+            \n
             ${link}
-
+            \n\n
             With Regards,
             IEEE-VIT
-
-            Agrim Nautiyal
+            \n\n
+            Agrim Nautiyal\n
             +91 91592 89775
         `,
         
