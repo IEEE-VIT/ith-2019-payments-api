@@ -34,25 +34,48 @@ mongoose.connect(process.env.MONGO_DB_URL, (err) => {
 });
 
 
-sendMail = (email,link) => {
+sendMail = (email,link,name) => {
+
     const msg = {
         to: email,
         from: 'ieeevit@ieeevit.com',
         subject: 'IEEE Techloop Hack 2019',
         html: `
-        <h4>Thank you for registering for IEEE Techloop Hack!<h4/>
-        <p>If you haven't paid already, you can click </p><a href=${link}>here</a>
-        <br/><br/>
+        <div style="
+            background-color: #fff;
+            padding: 24px;
+        ">
+            <div
+                style="
+                    background-color: #efefef;
+                    padding: 16px;
+                "
+            >
+            <h4>Hello, ${name}!</h4>
+            <h4>You have successfully registered for IEEE Techloop Hack, 2019<h4/>
+            <p>To confirm your registration, pay now by clicking on the button below.</p>
+            <p style="font-size: 8px;">Ignore if already paid</p>
+            <br/><br/>
+            <a 
+                style="
+                    padding: 12px;
+                    color: #fff;
+                    background-color: #0080FF;
+                "
+            href=${link}>Pay Now</a>
 
-        <p>With Regards,<br/>
-        IEEE-VIT</p>
+            <p>With Regards,<br/>
+            IEEE-VIT</p>
 
-        <p>
-        Agrim Nautiyal<br/>
-        +91 91592 89775
-        </p
+            <p>
+            Agrim Nautiyal<br/>
+            +91 91592 89775
+            </p
+            </div>
+        </div>
         
-        `
+        `,
+        
       };
 
     sgMail.send(msg, function(err, json ){
@@ -72,7 +95,7 @@ app.post('/register',(req,res) => {
         regsModel.create(req.body)
         .then(data => {
             res.json({Status: 'Success',Message: 'User registered'})
-            sendMail(req.body.email,req.body.link)
+            sendMail(req.body.email,req.body.link,req.body.name)
 
         }, err => {
             if (err.code === 11000) {
