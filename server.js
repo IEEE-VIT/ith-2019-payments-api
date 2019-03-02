@@ -39,7 +39,7 @@ sendMail = (email,link,name) => {
     const msg = {
         to: email,
         from: {
-            email: 'no-reply@ieeevit.com',
+            email: 'ith@ieeevit.com',
             name: 'IEEE VIT'
         },
         subject: 'IEEE Techloop Hack 2019',
