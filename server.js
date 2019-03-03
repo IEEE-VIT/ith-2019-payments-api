@@ -44,10 +44,10 @@ mongoose.connect(process.env.MONGO_DB_URL, (err) => {
 
 
 
-sendMail = (email,link,name) => {
+sendMail = (to,link,name) => {
 
     var email = {
-        to: [email],
+        to: [to],
         from: {
             email: 'noreply@ieeevit.com',
             name : 'Team ITH'
