@@ -5,6 +5,12 @@ const mongoose = require('mongoose');
 const Validate = require('./Utils/Validate');
 const cors = require('cors');
 const sgMail = require('@sendgrid/mail');
+require('dotenv').config();
+
+var sg = require('sendgrid')(process.env.SG_API_KEY);
+
+
+
 
 
 
@@ -12,7 +18,7 @@ const port = process.env.PORT || 5000;
 
 const regsModel = require('./Models/regs');
 
-require('dotenv').config();
+
 sgMail.setApiKey(process.env.SG_API_KEY);
 
 const app = express();
@@ -34,58 +40,140 @@ mongoose.connect(process.env.MONGO_DB_URL, (err) => {
 });
 
 
+app.get('/test',(req,res) => {
+   
+})
+
 sendMail = (email,link,name) => {
 
-    const msg = {
-        to: email,
-        from: {
+    var request = sg.emptyRequest({
+        method: 'POST',
+        path: '/v3/mail/send',
+        body: {
+          personalizations: [
+            {
+              to: [
+                {
+                  email: email
+                }
+              ],
+              subject: 'ITH 2019'
+            }
+          ],
+          from: {
             email: 'noreply@ieeevit.com',
             name: 'Team ITH'
-        },
-        subject: 'ITH 2019',
-        html: `
-        <div
-            style="
-                background-color: #D3D3D3;
+          },
+          content: [
+            {
+              type: 'text/html',
+              value: `
+              <div style="
+                background-color: #D8D8D8;
                 padding: 36px;
-            "
-        >
-            <div 
-            style="
-                background-color: #fff;
-                border-radius: 2px;
-                padding: 20px;"
-            >
-            <p>Hi ${name},</p><br/><br/>
-            <p>Thank you for registering for ITH, 2019. To finish your payment, click on the button below.</p>
-            <br></br>
-            <a
+              ">
+                <div
+                    style="
+                        padding: 24px;
+                        background-color: #fff;
+                        color: #000;
+                        border-radius: 3px;
+                    "
+                >
+                <p>Hi ${name},</p>
+                <p>Thank you for registering for ITH 2019.</p>
+                <p>To confirm your participation, proceed to the payment portal by clicking on the button below.</p><br/>
+                <a
                 style="
                 background-color: #2196f3;
                 color: #fff;
                 font-weight: bolder;
-                padding: 6px 18px;
+                padding: 8px 18px;
                 font-size: 12px;
-                border-radius: 3px;"
+                border-radius: 3px;
+                text-decoration: none;"
                 href=${link}
-            >Complete Payment</a>
-            <br/><br/>
-            IEEE-VIT
-            </div>
-            <p
-            style="
-            font-size: 8px;
-            color:#909090;"
-            >Gorbachev Rd, Vellore, Tamil Nadu 632014</p>
-        </div>
-        
-        `
-        
-      };
+                "
+                >Finish Payment</a><br/>
+                <p style="font-size: 10px; color: #B0B0B0;">Ignore this email if you have already paid</p>
+                </div>
+                <p
+                style="
+                font-size: 8px;
+                color:#909090;"
+                >Gorbachev Rd, Vellore, Tamil Nadu 632014</p>
+              </div>
+              `
+            }
+          ]
+        }
+      });
 
-    sgMail.send(msg, function(err, json ){
-        if (err) {console.log(err)}
-    });
+
+      sg.API(request)
+      .then(function (response) {
+        console.log(response.statusCode);
+        console.log(response.body);
+        console.log(response.headers);
+        res.send('Ok')
+      })
+      .catch(function (error) {
+        // error is an instance of SendGridError
+        // The full response is attached to error.response
+        console.log(error.response.statusCode);
+      });
+
+    // const msg = {
+    //     to: email,
+    //     from: {
+    //         email: 'noreply@ieeevit.com',
+    //         name: 'Team ITH'
+    //     },
+    //     subject: 'ITH 2019',
+    //     html: `
+    //     <div
+    //         style="
+    //             background-color: #D3D3D3;
+    //             padding: 36px;
+    //         "
+    //     >
+    //         <div 
+    //         style="
+    //             background-color: #fff;
+    //             border-radius: 2px;
+    //             padding: 20px;"
+    //         >
+    //         <p>Hi ${name},</p><br/>
+    //         <p>Thank you for registering for ITH, 2019. To finish your payment, click on the button below.</p>
+    //         <br></br>
+    //         <a
+    //             style="
+                // background-color: #2196f3;
+                // color: #fff;
+                // font-weight: bolder;
+                // padding: 6px 18px;
+                // font-size: 12px;
+                // border-radius: 3px;
+                // text-decoration: none;"
+                // href=${link}
+    //         >Complete Payment</a>
+    //         <br/><br/>
+    //         IEEE-VIT
+    //         </div>
+            // <p
+            // style="
+            // font-size: 8px;
+            // color:#909090;"
+            // >Gorbachev Rd, Vellore, Tamil Nadu 632014</p>
+    //     </div>
+        
+    //     `
+        
+    //   };
+
+    // sgMail.send(msg, function(err, json ){
+    //     if (err) {console.log(err)}
+    // });
 }
 
 
