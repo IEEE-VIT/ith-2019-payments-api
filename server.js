@@ -81,14 +81,14 @@ sendMail = (email,link,name) => {
                 font-size: 12px;
                 border-radius: 3px;
                 text-decoration: none;"
-                href=${link}
+                href=${r}
                 "
                 >Finish Payment</a><br/>
                 <p style="font-size: 10px; color: #B0B0B0;">Ignore this email if you have already paid</p>
                 </div>
                 <p
                 style="
-                font-size: 8px;
+                font-size: 12px;
                 color:#909090;"
                 >Gorbachev Rd, Vellore, Tamil Nadu 632014</p>
               </div>
