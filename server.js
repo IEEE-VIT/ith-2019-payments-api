@@ -39,23 +39,43 @@ sendMail = (email,link,name) => {
     const msg = {
         to: email,
         from: {
-            email: 'ithreg2019@gmail.com',
+            email: 'noreply@ieeevit.com',
             name: 'IEEE VIT'
         },
-        subject: 'IEEE Techloop Hack 2019',
-        text: `
-            Hello, ${name}!\n
-            You are recieveing this email for registering for IEEE Techloop Hack, 2019.\n
-            To confirm your registration, proceed to the payment portal from link given below:\n
-            \n
-            ${link}
-            \n\n
-            With Regards,
-            IEEE-VIT
-            \n\n
-            Agrim Nautiyal\n
-            +91 91592 89775
-        `,
+        subject: 'ITH 2019',
+        html: `
+        <div
+            style="
+                background-color: #D3D3D3;
+                padding: 36px;
+            "
+        >
+            <div 
+                background-color: #fff;
+                border-radius: 2px;
+                padding: 20px;
+            >
+            <p>Hi ${name},</p><br/><br/>
+            <p>Thank you for registering for ITH, 2019. To finish your payment, click on the button below.</p>
+            <br></br>
+            <a
+                background-color: #2196f3;
+                color: #fff;
+                font-weight: bolder;
+                padding: 6px 18px;
+                font-size: 12px;
+                border-radius: 3px;
+            >Complete Payment</a>
+            <br/><br/>
+            - IEEE-VIT
+            </div>
+            <p
+            font-size: 8px;
+            color:#909090;
+            >Gorbachev Rd, Vellore, Tamil Nadu 632014</p>
+        </div>
+        
+        `
         
       };
 
