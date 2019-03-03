@@ -94,7 +94,7 @@ sendMail = (to,link,name) => {
         if (err) { 
             console.log(err) 
         }
-        console.log('Email sent to: ', email)
+        console.log('Email sent')
     });
 
 }
