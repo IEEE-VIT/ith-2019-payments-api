@@ -51,27 +51,31 @@ sendMail = (email,link,name) => {
             "
         >
             <div 
+            style="
                 background-color: #fff;
                 border-radius: 2px;
-                padding: 20px;
+                padding: 20px;"
             >
             <p>Hi ${name},</p><br/><br/>
             <p>Thank you for registering for ITH, 2019. To finish your payment, click on the button below.</p>
             <br></br>
             <a
+                style="
                 background-color: #2196f3;
                 color: #fff;
                 font-weight: bolder;
                 padding: 6px 18px;
                 font-size: 12px;
-                border-radius: 3px;
+                border-radius: 3px;"
+                href=${link}
             >Complete Payment</a>
             <br/><br/>
-            - IEEE-VIT
+            IEEE-VIT
             </div>
             <p
+            style="
             font-size: 8px;
-            color:#909090;
+            color:#909090;"
             >Gorbachev Rd, Vellore, Tamil Nadu 632014</p>
         </div>
         
