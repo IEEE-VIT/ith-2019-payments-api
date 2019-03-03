@@ -11,12 +11,6 @@ require('dotenv').config();
 var nodemailer = require('nodemailer');
 var sgTransport = require('nodemailer-sendgrid-transport');
 
-var options = {
-    auth: {
-        api_key: process.env.SG_API_KEY
-    }
-}
-var mailer = nodemailer.createTransport(sgTransport(options));
 
 
 
@@ -45,13 +39,17 @@ mongoose.connect(process.env.MONGO_DB_URL, (err) => {
 
 
 sendMail = (to,link,name) => {
+    var options = {
+        auth: {
+            api_user: process.env.U,
+            api_key: process.env.P
+        }
+    }
+    var mailer = nodemailer.createTransport(sgTransport(options));
 
     var email = {
         to: [to],
-        from: {
-            email: 'noreply@ieeevit.com',
-            name : 'Team ITH'
-        },
+        from: 'noreply@ieeevit.com',
         subject: 'ITH 2019',
         html: `
               <div style="
@@ -96,7 +94,7 @@ sendMail = (to,link,name) => {
         if (err) { 
             console.log(err) 
         }
-        console.log(res);
+        res.send('Email sent!')
     });
 
     // var request = sg.emptyRequest({
@@ -177,6 +175,10 @@ sendMail = (to,link,name) => {
     //   });
 
 }
+
+app.get('/test',(req,res) => {
+    sendMail('mayank.shah1607@gmail.com','www.google.com','Mayank')
+})
 
 
 app.post('/register',(req,res) => {
