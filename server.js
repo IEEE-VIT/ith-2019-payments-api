@@ -40,7 +40,7 @@ sendMail = (email,link,name) => {
         to: email,
         from: {
             email: 'noreply@ieeevit.com',
-            name: 'IEEE VIT'
+            name: 'Team ITH'
         },
         subject: 'ITH 2019',
         html: `
