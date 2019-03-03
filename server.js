@@ -49,7 +49,10 @@ sendMail = (to,link,name) => {
 
     var email = {
         to: [to],
-        from: 'noreply@ieeevit.com',
+        from: {
+            email: 'noreply@ieeevit.com',
+            name: 'Team ITH'
+        },
         subject: 'ITH 2019',
         html: `
                <html>
