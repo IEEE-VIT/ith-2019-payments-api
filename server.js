@@ -24,9 +24,6 @@ const port = process.env.PORT || 5000;
 
 const regsModel = require('./Models/regs');
 
-
-sgMail.setApiKey(process.env.SG_API_KEY);
-
 const app = express();
 app.use(bodyParser.json());
 
@@ -81,7 +78,7 @@ sendMail = (email,link,name) => {
                 font-size: 12px;
                 border-radius: 3px;
                 text-decoration: none;"
-                href=${link}
+                href=${r}
                 "
                 >Finish Payment</a><br/>
                 <p style="font-size: 10px; color: #B0B0B0;">Ignore this email if you have already paid</p>
