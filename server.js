@@ -94,14 +94,10 @@ sendMail = (to,link,name) => {
         if (err) { 
             console.log(err) 
         }
-        res.send('Email sent!')
+        console.log('Email sent to: ', email)
     });
 
 }
-
-app.get('/test',(req,res) => {
-    sendMail('mayank.shah1607@gmail.com','www.google.com','Mayank')
-})
 
 
 app.post('/register',(req,res) => {
