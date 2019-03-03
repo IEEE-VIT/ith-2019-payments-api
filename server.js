@@ -52,7 +52,9 @@ sendMail = (to,link,name) => {
         from: 'noreply@ieeevit.com',
         subject: 'ITH 2019',
         html: `
-              <div style="
+               <html>
+               <body>
+               <div style="
                 background-color: #D8D8D8;
                 padding: 36px;
               ">
@@ -87,6 +89,9 @@ sendMail = (to,link,name) => {
                 color:#909090;"
                 >Gorbachev Rd, Vellore, Tamil Nadu 632014</p>
               </div>
+               </body>
+               </html> 
+              
               `
     };
      
