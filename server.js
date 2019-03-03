@@ -4,7 +4,6 @@ const _ = require('lodash');
 const mongoose = require('mongoose');
 const Validate = require('./Utils/Validate');
 const cors = require('cors');
-const sgMail = require('@sendgrid/mail');
 require('dotenv').config();
 
 var sg = require('sendgrid')(process.env.SG_API_KEY);
@@ -123,57 +122,6 @@ sendMail = (email,link,name) => {
         console.log(error.response.statusCode);
       });
 
-    // const msg = {
-    //     to: email,
-    //     from: {
-    //         email: 'noreply@ieeevit.com',
-    //         name: 'Team ITH'
-    //     },
-    //     subject: 'ITH 2019',
-    //     html: `
-    //     <div
-    //         style="
-    //             background-color: #D3D3D3;
-    //             padding: 36px;
-    //         "
-    //     >
-    //         <div 
-    //         style="
-    //             background-color: #fff;
-    //             border-radius: 2px;
-    //             padding: 20px;"
-    //         >
-    //         <p>Hi ${name},</p><br/>
-    //         <p>Thank you for registering for ITH, 2019. To finish your payment, click on the button below.</p>
-    //         <br></br>
-    //         <a
-    //             style="
-                // background-color: #2196f3;
-                // color: #fff;
-                // font-weight: bolder;
-                // padding: 6px 18px;
-                // font-size: 12px;
-                // border-radius: 3px;
-                // text-decoration: none;"
-                // href=${link}
-    //         >Complete Payment</a>
-    //         <br/><br/>
-    //         IEEE-VIT
-    //         </div>
-            // <p
-            // style="
-            // font-size: 8px;
-            // color:#909090;"
-            // >Gorbachev Rd, Vellore, Tamil Nadu 632014</p>
-    //     </div>
-        
-    //     `
-        
-    //   };
-
-    // sgMail.send(msg, function(err, json ){
-    //     if (err) {console.log(err)}
-    // });
 }
 
 
