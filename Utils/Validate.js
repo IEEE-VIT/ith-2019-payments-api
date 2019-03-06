@@ -23,7 +23,7 @@ const checkRequiredFields = data => {
         data.hasOwnProperty('id_trans')
     )
     {
-        if (Object.getOwnPropertyNames(data).length > 14) {
+        if (Object.getOwnPropertyNames(data).length > 15) {
             return false
         }
         else {
