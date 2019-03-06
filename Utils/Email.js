@@ -14,10 +14,7 @@ const sendMail = (to,ref,name) => {
 
     var email = {
         to: [to],
-        from: {
-            email: 'noreply@ieeevit.com',
-            name: 'Team ITH'
-        },
+        from: 'noreply@ieeevit.com',
         subject: 'ITH 2019',
         html: `
                <html>
