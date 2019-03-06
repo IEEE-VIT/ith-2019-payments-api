@@ -17,34 +17,7 @@ router.post('/register',(req,res) => {
     else{
         regsModel.create(req.body)
         .then(data => {
-            request({
-                url: 'https://academics.vit.ac.in/online_application2/onlinepayment/Online_pay_request1.asp',
-                rejectUnauthorized: false,
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/x-www-form-urlencoded',
-                    'dnt': "1",
-                    'accept-encoding': "gzip, deflate, br",
-                    'accept-languade': 'en-US,en,q=0.9',
-                    'cache-control': 'no-cache'
-                },
-                form: {
-                    id_event: process.env.id_event,
-                    id_merchant: process.env.id_merchant,
-                    id_password: process.env.id_password,
-                    id_trans: data.id_trans,
-                    id_name: data.name,
-                    amt_event: data.bill
-                }
-            }, function (error,response,body){
-                if (error){
-                    res.send(error)
-                }
-                res.send(body)
-        
-            })
-
-
+            res.send({Status: "Success", Message: "User stored"})
 
         }, err => {
             if (err.code === 11000) {
@@ -59,36 +32,36 @@ router.post('/register',(req,res) => {
 })
 
 
-// router.post('/payment',(req,res) => {
+router.get('/payment',(req,res) => {
 
-//     request({
-//         url: 'https://academics.vit.ac.in/online_application2/onlinepayment/Online_pay_request1.asp',
-//         rejectUnauthorized: false,
-//         method: 'POST',
-//         headers: {
-//             'content-type': 'application/x-www-form-urlencoded',
-//             'dnt': "1",
-//             'accept-encoding': "gzip, deflate, br",
-//             'accept-languade': 'en-US,en,q=0.9',
-//             'cache-control': 'no-cache'
-//         },
-//         form: {
-//             id_event: process.env.id_event,
-//             id_merchant: process.env.id_merchant,
-//             id_password: process.env.id_password,
-//             id_trans: 'IETE123123',
-//             id_name: 'Mayank',
-//             amt_event: 1.00
-//         }
-//     }, function (error,response,body){
-//         if (error){
-//             res.send(error)
-//         }
-//         res.send(body)
+    request({
+        url: 'https://academics.vit.ac.in/online_application2/onlinepayment/Online_pay_request1.asp',
+        rejectUnauthorized: false,
+        method: 'POST',
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'dnt': "1",
+            'accept-encoding': "gzip, deflate, br",
+            'accept-languade': 'en-US,en,q=0.9',
+            'cache-control': 'no-cache'
+        },
+        form: {
+            id_event: process.env.id_event,
+            id_merchant: process.env.id_merchant,
+            id_password: process.env.id_password,
+            id_trans: req.id_trans,
+            id_name: req.name,
+            amt_event: req.bill
+        }
+    }, function (error,response,body){
+        if (error){
+            res.render(error)
+        }
+        res.render(body)
 
-//     })
+    })
     
-// })
+})
 
 
 router.post('/payment/status', (req,res) => {
