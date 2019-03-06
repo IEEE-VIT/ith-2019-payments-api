@@ -72,7 +72,7 @@ router.post('/payment/status', (req,res) => {
         })
     }
     else{
-        res.send(req.body)
+        res.send("Payment unsuccessful")
     }
 })
 
