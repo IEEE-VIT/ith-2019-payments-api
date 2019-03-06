@@ -55,9 +55,9 @@ router.post('/payment',(req,res) => {
         }
     }, function (error,response,body){
         if (error){
-            res.render(error)
+            res.send(error)
         }
-        res.render(body)
+        res.send(body)
 
     })
     
