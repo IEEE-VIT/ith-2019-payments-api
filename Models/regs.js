@@ -25,11 +25,17 @@ const regsSchema = new Schema({
     },
     combo: String,
     track: String,
-    regno: String,
+    regno: {
+        type: String,
+        unique: true
+    },
     ieee_member: Boolean,
     ieee_id: String,
     gender: String,
-    TimeStamp: String
+    TimeStamp: String,
+    id_trans: String,
+    bill: Number,
+    payment_status: String
 
 })
 
