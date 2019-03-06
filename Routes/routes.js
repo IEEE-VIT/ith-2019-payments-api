@@ -53,7 +53,7 @@ router.post('/payment',(req,res) => {
             id_password: process.env.id_password,
             id_trans: req.body.id_trans,
             id_name: req.body.name,
-            amt_event: 1.00
+            amt_event: req.body.bill
         }
     }, function (error,response,body){
         if (error){
@@ -82,7 +82,7 @@ router.post('/payment/status', (req,res) => {
                         sendMail(obj.email,req.body.Refno,obj.name)
                     }
                 })
-                res.send("Payment Successful!")
+                res.send("Payment Successful! Kindly check your email for confirmation. Check Spam folder if required.")
             })
         })
     }
