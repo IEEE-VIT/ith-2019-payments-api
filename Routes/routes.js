@@ -3,6 +3,7 @@ const _ = require('lodash');
 const Validate = require('../Utils/Validate');
 const request = require('request');
 const regsModel = require('../Models/regs');
+const trxModel = require('../Models/transaction');
 require('dotenv').config();
 
 const router = express.Router();
@@ -51,7 +52,7 @@ router.post('/payment',(req,res) => {
             id_password: process.env.id_password,
             id_trans: req.body.id_trans,
             id_name: req.body.name,
-            amt_event: req.body.bill
+            amt_event: 1.00
         }
     }, function (error,response,body){
         if (error){
@@ -69,7 +70,11 @@ router.post('/payment/status', (req,res) => {
     if (req.body.status === "0300"){
         
         regsModel.findOneAndUpdate({id_trans: req.body.Refno},{payment_status: 'paid'},() => {
-            res.send("Payment Successful!")
+            trxModel.create(req.body)
+            .then(data => {
+
+                res.send("Payment Successful!")
+            })
         })
     }
     else{
