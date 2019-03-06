@@ -33,7 +33,10 @@ const regsSchema = new Schema({
     ieee_id: String,
     gender: String,
     TimeStamp: String,
-    id_trans: String,
+    id_trans: {
+        type: String,
+        unique: true
+    },
     bill: Number,
     payment_status: String
 
