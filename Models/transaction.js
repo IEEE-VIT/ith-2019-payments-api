@@ -23,16 +23,13 @@ const trxSchema = new Schema({
         required: true
     },
     status: {
-        type: String,
-        unique: true
+        type: String
     },
     txnamount: {
-        type: String,
-        unique: true
+        type: String
     },
     appsubmit: {
-        type: String,
-        unique: true
+        type: String
     }
 })
 
