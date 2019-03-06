@@ -17,8 +17,6 @@ router.post('/register',(req,res) => {
     else{
         regsModel.create(req.body)
         .then(data => {
-            res.json({Status: 'Success',Message: 'User registered'})
-
 
             request({
                 url: 'https://academics.vit.ac.in/online_application2/onlinepayment/Online_pay_request1.asp',
