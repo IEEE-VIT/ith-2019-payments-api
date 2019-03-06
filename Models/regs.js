@@ -39,7 +39,6 @@ const regsSchema = new Schema({
     },
     bill: Number,
     payment_status: String
-
 })
 
 const regsModel = mongoose.model('registrations',regsSchema);
