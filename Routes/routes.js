@@ -66,7 +66,8 @@ router.get('/payment',(req,res) => {
 
 
 router.post('/payment/status', (req,res) => {
-    console.log(req.body)
+    console.log(req)
+    res.send(req.body)
 })
 
 module.exports = router;
