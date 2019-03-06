@@ -18,7 +18,7 @@ router.post('/register',(req,res) => {
         regsModel.create(req.body)
         .then(data => {
             res.json({Status: 'Success',Message: 'User registered'})
-            sendMail(req.body.email,req.body.link,req.body.name)
+            console.log(data)
 
         }, err => {
             if (err.code === 11000) {
@@ -33,7 +33,7 @@ router.post('/register',(req,res) => {
 })
 
 
-router.get('/payment',(req,res) => {
+router.post('/payment',(req,res) => {
 
     request({
         url: 'https://academics.vit.ac.in/online_application2/onlinepayment/Online_pay_request1.asp',
@@ -66,6 +66,8 @@ router.get('/payment',(req,res) => {
 
 
 router.post('/payment/status', (req,res) => {
+
+    if (req.body.status === "")
     console.log(req)
     res.send(req.body)
 })

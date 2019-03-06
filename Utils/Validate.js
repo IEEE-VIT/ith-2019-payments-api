@@ -18,10 +18,11 @@ const checkRequiredFields = data => {
         data.hasOwnProperty('ieee_member') &&
         data.hasOwnProperty('ieee_id') &&
         data.hasOwnProperty('verified') &&
-        data.hasOwnProperty('link') 
+        data.hasOwnProperty('bill') &&
+        data.hasOwnProperty('payment_status') 
     )
     {
-        if (Object.getOwnPropertyNames(data).length > 13) {
+        if (Object.getOwnPropertyNames(data).length > 14) {
             return false
         }
         else {
