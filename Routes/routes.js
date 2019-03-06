@@ -49,9 +49,9 @@ router.post('/payment',(req,res) => {
             id_event: process.env.id_event,
             id_merchant: process.env.id_merchant,
             id_password: process.env.id_password,
-            id_trans: req.id_trans,
-            id_name: req.name,
-            amt_event: req.bill
+            id_trans: req.body.id_trans,
+            id_name: req.body.name,
+            amt_event: req.body.bill
         }
     }, function (error,response,body){
         if (error){
