@@ -69,7 +69,7 @@ router.post('/payment/status', (req,res) => {
     if (req.body.status === "0300"){
         
         regsModel.findOneAndUpdate({id_trans: req.body.Refno},{payment_status: 'paid'},() => {
-            res.send({data: req.body,Message: "Successful"})
+            res.send("Payment Successful!")
         })
     }
     else{
