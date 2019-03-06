@@ -17,7 +17,6 @@ router.post('/register',(req,res) => {
     else{
         regsModel.create(req.body)
         .then(data => {
-
             request({
                 url: 'https://academics.vit.ac.in/online_application2/onlinepayment/Online_pay_request1.asp',
                 rejectUnauthorized: false,
