@@ -3,7 +3,7 @@ require('dotenv').config();
 var nodemailer = require('nodemailer');
 var sgTransport = require('nodemailer-sendgrid-transport');
 
-const sendMail = (to,link,name) => {
+const sendMail = (to,ref,name) => {
     var options = {
         auth: {
             api_user: process.env.U,
@@ -32,24 +32,16 @@ const sendMail = (to,link,name) => {
                         background-color: #fff;
                         color: #000;
                         border-radius: 3px;
+                        text-align: center;
                     "
                 >
-                <p>Hi ${name},</p>
+                <p><strong>Hi ${name},</strong></p>
                 <p>Thank you for registering for ITH 2019.</p>
-                <p>To confirm your participation, proceed to the payment portal by clicking on the button below.</p><br/>
-                <a
-                style="
-                background-color: #2196f3;
-                color: #fff;
-                font-weight: bolder;
-                padding: 8px 18px;
-                font-size: 12px;
-                border-radius: 3px;
-                text-decoration: none;"
-                href=${link}
-                "
-                >Finish Payment</a><br/>
-                <p style="font-size: 10px; color: #B0B0B0;">Ignore this email if you have already paid</p>
+                <p>Your Reference ID is : <strong>${ref}</strong></p><br/>
+                <div style="text-align: left;">
+                <p>With regards,</p>
+                <p>IEEE-VIT</p>
+                </div>
                 </div>
                 <p
                 style="

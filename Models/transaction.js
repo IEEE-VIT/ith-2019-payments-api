@@ -36,6 +36,6 @@ const trxSchema = new Schema({
     }
 })
 
-const trxModel = mongoose.model('transaction_data',regsSchema);
+const trxModel = mongoose.model('transaction_data',trxSchema);
 
 module.exports = trxModel;

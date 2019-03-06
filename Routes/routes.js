@@ -4,6 +4,7 @@ const Validate = require('../Utils/Validate');
 const request = require('request');
 const regsModel = require('../Models/regs');
 const trxModel = require('../Models/transaction');
+const sendMail = require('../Utils/Email');
 require('dotenv').config();
 
 const router = express.Router();
@@ -65,6 +66,7 @@ router.post('/payment',(req,res) => {
 })
 
 
+
 router.post('/payment/status', (req,res) => {
 
     if (req.body.status === "0300"){
@@ -72,7 +74,14 @@ router.post('/payment/status', (req,res) => {
         regsModel.findOneAndUpdate({id_trans: req.body.Refno},{payment_status: 'paid'},() => {
             trxModel.create(req.body)
             .then(data => {
-
+                regsModel.findOne({id_trans: req.body.Refno},(err,obj) => {
+                    if (err){
+                        res.send('Error')
+                    }
+                    else {
+                        sendMail(obj.email,req.body.Refno,obj.name)
+                    }
+                })
                 res.send("Payment Successful!")
             })
         })
