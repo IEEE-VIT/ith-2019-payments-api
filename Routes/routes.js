@@ -32,7 +32,7 @@ router.post('/register',(req,res) => {
 })
 
 
-router.get('/payment',(req,res) => {
+router.post('/payment',(req,res) => {
 
     request({
         url: 'https://academics.vit.ac.in/online_application2/onlinepayment/Online_pay_request1.asp',
