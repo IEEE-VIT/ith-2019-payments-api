@@ -5,6 +5,7 @@ var sgTransport = require('nodemailer-sendgrid-transport');
 
 const sendMail = (to,ref,name) => {
     var options = {
+        service: 'gmail',
         auth: {
             api_user: process.env.U,
             api_key: process.env.P
@@ -14,7 +15,7 @@ const sendMail = (to,ref,name) => {
 
     var email = {
         to: [to],
-        from: 'noreply@ieeevit.com',
+        from: '"Team ITH" <noreply@ieeevit.com>',
         subject: 'ITH 2019',
         html: `
                <html>
