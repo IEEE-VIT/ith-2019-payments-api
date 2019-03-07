@@ -93,7 +93,7 @@ router.post('/payment/status', (req,res) => {
         regsModel.deleteOne({id_trans: req.body.Refno},function(err){
             console.log(err)
         })
-        res.send("Payment unsuccessful")
+        res.send("Payment unsuccessful. Your registration has failed.")
     }
 })
 
