@@ -41,6 +41,6 @@ const regsSchema = new Schema({
     payment_status: String
 })
 
-const regsModel = mongoose.model('registrations',regsSchema);
+const regsModel = mongoose.model('new_registration',regsSchema);
 
 module.exports = regsModel;
