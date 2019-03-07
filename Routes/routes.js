@@ -84,9 +84,15 @@ router.post('/payment/status', (req,res) => {
                 })
                 res.send("Payment Successful! Kindly check your email for confirmation. Check Spam folder if required.")
             })
+            .catch(err => {
+                console.log(err)
+            })
         })
     }
     else{
+        regsModel.deleteOne({id_trans: req.body.Refno},function(err){
+            console.log(err)
+        })
         res.send("Payment unsuccessful")
     }
 })
