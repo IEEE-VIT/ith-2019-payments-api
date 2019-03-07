@@ -26,8 +26,7 @@ const regsSchema = new Schema({
     combo: String,
     track: String,
     regno: {
-        type: String,
-        unique: true
+        type: String
     },
     ieee_member: Boolean,
     ieee_id: String,
