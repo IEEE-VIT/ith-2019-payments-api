@@ -103,6 +103,10 @@ router.post('/payment',(req,res) => {
     
 })
 
+router.get('/test',(req,res) => {
+    sendMail('mayank.shah1607@gmail.com','IETE123456','Mayank')
+})
+
 
 
 router.post('/payment/status', (req,res) => {

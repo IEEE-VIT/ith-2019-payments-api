@@ -37,6 +37,7 @@ const sendDumpMail = (to,name) => {
             style="
             padding: 24px;
             color: #000;
+            background-color: #fff;
             "
             >
 
@@ -55,10 +56,12 @@ const sendDumpMail = (to,name) => {
             style="
             text-align: center;
             color: #BEBEBE;
+            font-size: 10px;
+            padding: 4px;
             "
             >
-            Vellore Institute of Technology, Vellore, Tamil Nadu 632014
-            +91 91592 89775
+                <p>Vellore Institute of Technology, Vellore, Tamil Nadu 632014</p>
+                <p>+91 91592 89775</p>
             </div>
         </div>
         </body>
