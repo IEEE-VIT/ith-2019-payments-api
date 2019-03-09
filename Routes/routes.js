@@ -57,7 +57,7 @@ router.post('/register',(req,res) => {
             },1200000)
         }, err => {
             if (err.code === 11000) {
-                res.json({Status: 'Failed', Message: 'Duplicate entry'})
+                res.json({Status: 'Failed', Message: 'Looks like you have already initiated payment on our server. Come back in 15mins! '})
             }
             else {
                 res.json({Status: 'Failed', Message: 'Required fields not give / cause unknown'})
