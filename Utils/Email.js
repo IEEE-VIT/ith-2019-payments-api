@@ -17,14 +17,52 @@ const sendMail = (to,ref,name) => {
         to: [to],
         from: '"Team ITH" <noreply@ieeevit.com>',
         subject: 'ITH 2019',
-        text: `
-            Hi, ${name}\n
-            You have successfully registered for ITH 2019.
-            Your reference ID is : ${ref}
+        html: `
+        <!doctype html>
+        <html>
+        <head>
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Thank you for registering for ITH 2019</title>
+        </head>
+        <body>
+        <div
+        style="
+        background-color: #F0F0F0;
+        padding: 34px;
+        "
+        >
 
-            With Regards,
-            IEEE-VIT
+            <div
+            style="
+            padding: 24px;
+            color: #000;
+            "
+            >
 
+            <p>Hi ${name},</p>
+            <p>Congratulations, you have successfully registered for ITH 2019!</p>
+            <p>Your reference ID is <strong>${ref}</strong></p>
+            <br/>
+            <p>We hope to see you soon! :)</p>
+            <br/>
+            <br/>
+            <p>With Regards,</p>
+            <p>IEEE-VIT</p>
+            </div>
+
+            <div
+            style="
+            text-align: center;
+            color: #BEBEBE;
+            "
+            >
+            Vellore Institute of Technology, Vellore, Tamil Nadu 632014
+            +91 91592 89775
+            </div>
+        </div>
+        </body>
+        </html>
         `
     };
      

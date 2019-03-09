@@ -17,14 +17,52 @@ const sendDumpMail = (to,name) => {
         to: [to],
         from: '"Team ITH" <noreply@ieeevit.com>',
         subject: 'ITH Payment Failure',
-        text: `
-            Hi, ${name}\n
-            You have initiated payment on our registration portal, but looks like you have forgotten about it!\n
-            Kindly re-register at http://ith.ieeevit.com\n
+        html: `
+        <!doctype html>
+        <html>
+        <head>
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Thank you for registering for ITH 2019</title>
+        </head>
+        <body>
+        <div
+        style="
+        background-color: #F0F0F0;
+        padding: 34px;
+        "
+        >
 
-            With Regards,
-            IEEE-VIT
+            <div
+            style="
+            padding: 24px;
+            color: #000;
+            "
+            >
 
+            <p>Hi ${name},</p>
+            <p>Your registration for ITH 2019 is pending!</p>
+            <p>Click <a href='http://ith.ieeevit.com/register'>here</a> to finish your registration process.</p>
+            <br/>
+            <p>We hope to see you soon! :)</p>
+            <br/>
+            <br/>
+            <p>With Regards,</p>
+            <p>IEEE-VIT</p>
+            </div>
+
+            <div
+            style="
+            text-align: center;
+            color: #BEBEBE;
+            "
+            >
+            Vellore Institute of Technology, Vellore, Tamil Nadu 632014
+            +91 91592 89775
+            </div>
+        </div>
+        </body>
+        </html>
         `
     };
      
