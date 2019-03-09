@@ -126,6 +126,11 @@ router.post('/payment/status', (req,res) => {
                 console.log(err)
             })
         })
+
+        dumpModel.deleteOne({id_trans: req.body.Refno},function(err){
+            console.log(err)
+        })
+
     }
     else{
         regsModel.deleteOne({id_trans: req.body.Refno},function(err){
