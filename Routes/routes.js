@@ -20,11 +20,6 @@ router.post('/register',(req,res) => {
         regsModel.create(req.body)
         .then(data => {
             res.send({Status: "Success", Message: "User stored"})
-
-            setTimeout(()=>{
-                console.log('Time up')
-            },90000)
-
         }, err => {
             if (err.code === 11000) {
                 res.json({Status: 'Failed', Message: 'Duplicate entry'})
