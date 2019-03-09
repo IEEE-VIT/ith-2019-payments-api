@@ -8,13 +8,11 @@ const dumpSchema = new Schema({
     },
     email: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     mobile: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     university: {
         type: String,

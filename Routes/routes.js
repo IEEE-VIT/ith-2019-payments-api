@@ -30,7 +30,7 @@ router.post('/register',(req,res) => {
                     }
                     else {
                         if (obj !== null && obj.payment_status === 'no'){
-                            console.log({
+                            dumpModel.create({
                                 name: obj.name,
                                 email: obj.email,
                                 mobile: obj.mobile,
@@ -38,9 +38,11 @@ router.post('/register',(req,res) => {
                                 id_trans: obj.id_trans,
                                 bill: obj.bill
                             })
-                            dumpModel.create(obj)
                             .then(dumpdata=>{
-                                console.log('Data dumped!')
+                                regsModel.deleteOne({id_trans: dumpdata.id_trans},function(err){
+                                    console.log(err)
+                                })
+                                console.log('Data dumped for ', dumpdata.name)
 
                             },error => {
                                 console.log('Error dumping - ', error)
@@ -52,7 +54,7 @@ router.post('/register',(req,res) => {
                     }
                 })
 
-            },10000)
+            },300000)
         }, err => {
             if (err.code === 11000) {
                 res.json({Status: 'Failed', Message: 'Duplicate entry'})
