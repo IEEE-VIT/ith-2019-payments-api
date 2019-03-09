@@ -6,6 +6,8 @@ const regsModel = require('../Models/regs');
 const dumpModel = require('../Models/dump');
 const trxModel = require('../Models/transaction');
 const sendMail = require('../Utils/Email');
+const sendDumpMail = require('../Utils/DumpEmail');
+
 require('dotenv').config();
 
 const router = express.Router();
@@ -43,6 +45,7 @@ router.post('/register',(req,res) => {
                                     console.log(err)
                                 })
                                 console.log('Data dumped for ', dumpdata.name)
+                                sendDumpMail(dumpdata.email,dumpdata.name)
 
                             },error => {
                                 console.log('Error dumping - ', error)
