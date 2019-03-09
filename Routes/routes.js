@@ -19,9 +19,7 @@ router.post('/register',(req,res) => {
     else{
         regsModel.create(req.body)
         .then(data => {
-            res.send({Status: "Success", Message: "User stored"}, () => {
-                console.log('Callback for response!')
-            })
+            res.send({Status: "Success", Message: "User stored"})
         }, err => {
             if (err.code === 11000) {
                 res.json({Status: 'Failed', Message: 'Duplicate entry'})
