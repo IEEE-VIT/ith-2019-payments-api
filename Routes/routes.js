@@ -54,7 +54,7 @@ router.post('/register',(req,res) => {
                     }
                 })
 
-            },300000)
+            },1200000)
         }, err => {
             if (err.code === 11000) {
                 res.json({Status: 'Failed', Message: 'Duplicate entry'})
