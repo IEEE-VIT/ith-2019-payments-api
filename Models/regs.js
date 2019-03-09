@@ -38,7 +38,7 @@ const regsSchema = new Schema({
     },
     bill: Number,
     payment_status: String,
-    accommodation : Boolean
+    acc: Boolean
 })
 
 const regsModel = mongoose.model('new_registration',regsSchema);
