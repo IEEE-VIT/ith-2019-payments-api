@@ -21,9 +21,11 @@ const checkRequiredFields = data => {
         data.hasOwnProperty('bill') &&
         data.hasOwnProperty('payment_status') &&
         data.hasOwnProperty('id_trans') &&
-        data.hasOwnProperty('TimeStamp'))
+        data.hasOwnProperty('TimeStamp') &&
+        data.hasOwnProperty('accommodation')
+        )
     {
-        if (Object.getOwnPropertyNames(data).length > 16) {
+        if (Object.getOwnPropertyNames(data).length > 17) {
             return false
         }
         else {
