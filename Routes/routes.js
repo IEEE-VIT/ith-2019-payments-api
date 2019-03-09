@@ -3,6 +3,7 @@ const _ = require('lodash');
 const Validate = require('../Utils/Validate');
 const request = require('request');
 const regsModel = require('../Models/regs');
+const dumpModel = require('../Models/dump');
 const trxModel = require('../Models/transaction');
 const sendMail = require('../Utils/Email');
 require('dotenv').config();
@@ -20,6 +21,38 @@ router.post('/register',(req,res) => {
         regsModel.create(req.body)
         .then(data => {
             res.send({Status: "Success", Message: "User stored"})
+
+
+            setTimeout(()=> {
+                regsModel.findOne({id_trans: data.id_trans},(err,obj) => {
+                    if (err){
+                        res.send('Error')
+                    }
+                    else {
+                        if (obj !== null && obj.payment_status === 'no'){
+                            console.log({
+                                name: obj.name,
+                                email: obj.email,
+                                mobile: obj.mobile,
+                                university: obj.university,
+                                id_trans: obj.id_trans,
+                                bill: obj.bill
+                            })
+                            dumpModel.create(obj)
+                            .then(dumpdata=>{
+                                console.log('Data dumped!')
+
+                            },error => {
+                                console.log('Error dumping - ', error)
+                            })
+                        }
+                        else {
+                            console.log('Skipping dump!')
+                        }
+                    }
+                })
+
+            },10000)
         }, err => {
             if (err.code === 11000) {
                 res.json({Status: 'Failed', Message: 'Duplicate entry'})
@@ -31,6 +64,7 @@ router.post('/register',(req,res) => {
     }
 
 })
+
 
 
 router.post('/payment',(req,res) => {

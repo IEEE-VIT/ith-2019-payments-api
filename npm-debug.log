@@ -7,7 +7,7 @@
 6 silly lifecycle ith2019_reg_api@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle ith2019_reg_api@1.0.0~start: ith2019_reg_api@1.0.0
 8 verbose lifecycle ith2019_reg_api@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle ith2019_reg_api@1.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/home/mayank/Desktop/ith2019_reg_api/node_modules/.bin:/home/mayank/anaconda3/bin:/home/mayank/.local/bin:/home/mayank/anaconda3/bin:/home/mayank/.local/bin:/home/mayank/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+9 verbose lifecycle ith2019_reg_api@1.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/home/mayank/Desktop/ith2019_reg_api/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
 10 verbose lifecycle ith2019_reg_api@1.0.0~start: CWD: /home/mayank/Desktop/ith2019_reg_api
 11 silly lifecycle ith2019_reg_api@1.0.0~start: Args: [ '-c', 'node server.js' ]
 12 silly lifecycle ith2019_reg_api@1.0.0~start: Returned: code: 1  signal: null
