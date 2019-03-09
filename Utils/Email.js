@@ -42,7 +42,7 @@ const sendMail = (to,ref,name) => {
             >
 
             <p>Hi ${name},</p>
-            <p>Congratulations! You have successfully registered for ITH 2019!</p>
+            <p>Congratulations! You have successfully registered for ITH 2019.</p>
             <p>Your reference ID is <strong>${ref}</strong></p>
             <br/>
             <p>We hope to see you soon! :)</p>
