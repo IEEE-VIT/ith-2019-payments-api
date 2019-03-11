@@ -22,7 +22,10 @@ const dumpSchema = new Schema({
         type: String,
         unique: true
     },
-    bill: Number,
+    bill: {
+        type: Number,
+        required: true
+    },
 })
 
 const dumpModel = mongoose.model('dump',dumpSchema);
